@@ -1,27 +1,43 @@
-<h1>Listado de Productos</h1>
-<p><a href="?controller=producto&action=create">Crear producto</a></p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carta del Restaurante</title>
+    <style>
+        table { width: 80%; margin: 20px auto; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Nuestra Carta</h1>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="?controller=producto&action=create">Añadir Nuevo Producto</a>
+    </div>
 
-<table>
-    <tr>
-        <th>Nombre</th>
-        <th>Talla</th>
-        <th>Precio</th>
-        <th>Acciones</th>
-    </tr>
-    <?php if (empty($productos)) { ?>
+    <table>
         <tr>
-            <td colspan="4">No hay productos todavía.</td>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Acciones</th>
         </tr>
-    <?php } ?>
-    <?php foreach ($productos as $producto) { ?>
-        <tr>
-            <td><?= htmlspecialchars($producto->getNombre(), ENT_QUOTES, 'UTF-8') ?></td>
-            <td><?= htmlspecialchars($producto->getTalla(), ENT_QUOTES, 'UTF-8') ?></td>
-            <td><?= number_format((float) $producto->getPrecio(), 2, ',', '.') ?> €</td>
-            <td>
-                <a href="?controller=producto&action=show&id=<?= (int) $producto->getId() ?>">Ver</a>
-                <a href="?controller=producto&action=destroy&id=<?= (int) $producto->getId() ?>">Eliminar</a>
-            </td>
-        </tr>
-    <?php } ?>
-</table>
+        <?php if (!empty($productos)): ?>
+            <?php foreach ($productos as $p): ?>
+            <tr>
+                <td><?= $p->getId() ?></td>
+                <td><?= $p->getNombre() ?></td>
+                <td><?= $p->getDescripcion() ?></td>
+                <td><?= $p->getPrecio() ?> €</td>
+                <td>
+                    <a href="?controller=producto&action=show&id=<?= $p->getId() ?>">Ver detalles</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr><td colspan="5">No hay productos en la carta.</td></tr>
+        <?php endif; ?>
+    </table>
+</body>
+</html>

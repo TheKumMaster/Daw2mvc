@@ -1,69 +1,44 @@
 <?php
+require_once 'models/ProductoDAO.php';
 
-include_once("models/CamisetaDAO.php");
-include_once("models/Camiseta.php");
+class productoController {
 
-class productoController
-{
-    private const TALLAS_VALIDAS = ['XXL', 'XL', 'L', 'M', 'S'];
-
-    public function index()
-    {
-        $productos = CamisetaDAO::getAll();
-        $view = "views/productos/listado.php";
-        include_once 'views/main.php';
+    // Mostrar el listado de todos los productos
+    public function index() {
+        $productos = ProductoDAO::getAll();
+        require_once 'views/productos/listado.php';
     }
 
-    public function create()
-    {
-        $view = "views/productos/create.php";
-        include_once 'views/main.php';
-    }
-
-    public function store()
-    {
-        $nombre = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
-        $talla = isset($_POST['talla']) ? $_POST['talla'] : '';
-        $precio = isset($_POST['precio']) ? $_POST['precio'] : '';
-
-        if ($nombre === '' || !in_array($talla, self::TALLAS_VALIDAS, true) || !is_numeric($precio) || $precio < 0) {
-            header('Location:?controller=producto&action=create');
-            exit;
+    // Mostrar un producto específico
+    public function show() {
+        if (isset($_GET['id'])) {
+            $producto = ProductoDAO::getById($_GET['id']);
+            require_once 'views/productos/show.php';
+        } else {
+            header("Location: ?controller=producto&action=index");
         }
-
-        $producto = new Camiseta($nombre, $talla, (float) $precio);
-        CamisetaDAO::store($producto);
-
-        header('Location:?controller=producto');
-        exit;
     }
 
-    public function destroy()
-    {
-        if (!isset($_GET['id']) || !ctype_digit((string) $_GET['id'])) {
-            header('Location:?controller=producto');
-            exit;
-        }
-
-        CamisetaDAO::destroy((int) $_GET['id']);
-        header('Location:?controller=producto');
-        exit;
+    // Mostrar el formulario para crear un producto
+    public function create() {
+        require_once 'views/productos/create.php';
     }
 
-    public function show()
-    {
-        if (!isset($_GET['id']) || !ctype_digit((string) $_GET['id'])) {
-            header('Location:?controller=producto');
-            exit;
-        }
+    // Guardar el producto en la base de datos
+    public function save() {
+        if (isset($_POST['nombre'])) {
+            $categoria_id = $_POST['categoria_id']; 
+            $nombre = $_POST['nombre'];
+            $descripcion = $_POST['descripcion'];
+            $precio = $_POST['precio'];
+            $imagen = $_POST['imagen'];
+            $activo = 1;
 
-        $producto = CamisetaDAO::getById((int) $_GET['id']);
-        if ($producto === null) {
-            header('Location:?controller=producto');
-            exit;
+            $producto = new Producto($categoria_id, $nombre, $descripcion, $precio, $imagen, $activo);
+            ProductoDAO::store($producto);
         }
-
-        $view = "views/productos/show.php";
-        include_once 'views/main.php';
+        header("Location: ?controller=producto&action=index");
     }
+
 }
+?>
