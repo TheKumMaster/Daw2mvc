@@ -4,8 +4,8 @@ class DataBase
 {
     private const DB_HOST = '127.0.0.1';
     private const DB_USER = 'root';
-    private const DB_PASS = ''; // <-- pon aquí tu contraseña de root
-    private const DB_NAME = 'daw2mvc';
+    private const DB_PASS = 'Informatica_1'; // <-- pon aquí tu contraseña de root
+    private const DB_NAME = 'yeahgermeister';
 
     public static function connect(
         $host = self::DB_HOST,
