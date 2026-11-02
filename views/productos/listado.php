@@ -2,39 +2,63 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Carta del Restaurante</title>
-    <link rel="stylesheet" href="<?= url ?>assets/css/global.css">
-    <link rel="stylesheet" href="<?= url ?>assets/css/admin.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta del Restaurante - Yeahgermeister</title>
+    <link rel="stylesheet" href="<?= url ?>assets/css/admin.css?v=<?= time() ?>">
 </head>
 <body>
-    <h1 style="text-align: center;">Nuestra Carta</h1>
-    <div style="text-align: center; margin-bottom: 20px;">
-        <a href="?controller=producto&action=create">Añadir Nuevo Producto</a>
+
+<div class="admin-container">
+
+    <div style="margin-bottom: 15px;">
+        <a href="<?= url ?>">← Volver al Home</a>
     </div>
 
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Precio</th>
-            <th>Acciones</th>
-        </tr>
-        <?php if (!empty($productos)): ?>
-            <?php foreach ($productos as $p): ?>
+    <h1>NUESTRA CARTA</h1>
+
+    <div style="margin: 20px 0;">
+        <a href="<?= url ?>?controller=producto&action=create" class="btn-action">Añadir Nuevo Plato</a>
+    </div>
+
+    <?php 
+        $listaPlatos = $productos ?? $camisetas ?? null; 
+    ?>
+
+    <table class="crud-table">
+        <thead>
             <tr>
-                <td><?= $p->getId() ?></td>
-                <td><?= $p->getNombre() ?></td>
-                <td><?= $p->getDescripcion() ?></td>
-                <td><?= $p->getPrecio() ?> €</td>
-                <td>
-                    <a href="?controller=producto&action=show&id=<?= $p->getId() ?>">Ver detalles</a>
-                </td>
+                <th>Imagen</th>
+                <th>Plato</th>
+                <th>Descripción / Ingredientes</th>
+                <th>Precio</th>
+                <th>Acciones</th>
             </tr>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <tr><td colspan="5">No hay productos en la carta.</td></tr>
-        <?php endif; ?>
+        </thead>
+        <tbody>
+            <?php if (isset($listaPlatos) && is_object($listaPlatos) && $listaPlatos->num_rows > 0): ?>
+                <?php while ($plato = $listaPlatos->fetch_object()): ?>
+                    <tr>
+                        <td>
+                            <?php $img = !empty($plato->imagen) ? $plato->imagen : 'default.png'; ?>
+                            <img src="<?= url ?>assets/img/<?= $img ?>" alt="<?= htmlspecialchars($plato->nombre) ?>" width="50" height="50" style="object-fit: cover; border-radius: 8px;">
+                        </td>
+                        <td><strong><?= htmlspecialchars($plato->nombre) ?></strong></td>
+                        <td><?= !empty($plato->descripcion) ? htmlspecialchars($plato->descripcion) : '-' ?></td>
+                        <td><?= number_format($plato->precio, 2) ?> €</td>
+                        <td>
+                            <a href="<?= url ?>?controller=producto&action=show&id=<?= $plato->id ?>" class="btn-action btn-secondary" style="font-size: 11px; padding: 6px 12px;">Ver detalles</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 20px;">No hay platos añadidos en la carta todavía.</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
     </table>
+
+</div>
+
 </body>
 </html>

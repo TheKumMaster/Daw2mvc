@@ -1,66 +1,132 @@
-.admin-container {
-    max-width: 900px;
-    margin: 40px auto;
+/* Importar tipografía Montserrat y variables globales */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap');
+
+:root {
+    --color-fondo: #092D17;       /* Verde oscuro de fondo */
+    --color-card: #0D4734;        /* Verde del contenedor */
+    --color-blanco: #FFFFFF;      /* Texto de contraste */
+    --color-acento: #C35317;      /* Naranja para botones destacados */
+    --color-btn-sec: #265A49;     /* Verde secundario para botones */
+    --fuente-base: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--fuente-base);
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-blanco);
     padding: 20px;
-}
-
-.admin-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    border-bottom: 2px solid var(--secundario-2);
-    padding-bottom: 15px;
+    justify-content: center;
 }
 
-/* Estilos de Tablas CRUD */
-.crud-table {
+/* Contenedor principal de la vista */
+.admin-container {
     width: 100%;
-    border-collapse: collapse;
-    background-color: var(--secundario-2);
-    border-radius: 8px;
-    overflow: hidden;
-    margin-top: 15px;
-}
-
-.crud-table th, .crud-table td {
-    padding: 12px 16px;
-    text-align: left;
-    border-bottom: 1px solid var(--secundario-3);
-}
-
-.crud-table th {
-    background-color: var(--color-principal);
-    font-weight: 800;
-}
-
-/* Formulario */
-.crud-form {
-    background-color: var(--secundario-2);
-    padding: 25px;
-    border-radius: 8px;
+    max-width: 480px; /* Ancho idéntico al home para consistencia */
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
+    gap: 20px;
 }
 
-.crud-form input, .crud-form select {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-    width: 100%;
+/* Títulos */
+h1, h2 {
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
+h1 { font-size: 32px; }
+h2 { font-size: 24px; }
+
+/* Enlaces y Navegación */
+a {
+    color: var(--color-blanco);
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Botones con estilo píldora como en el diseño */
 .btn-action {
     display: inline-block;
     background-color: var(--color-acento);
     color: var(--color-blanco);
-    padding: 10px 18px;
+    padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 800;
+    font-size: 14px;
     border: none;
     cursor: pointer;
+    text-align: center;
+}
+
+.btn-secondary {
+    background-color: var(--color-btn-sec);
+}
+
+/* Tablas CRUD muy sencillas */
+.crud-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.crud-table th, .crud-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-card);
+    font-size: 14px;
+}
+
+.crud-table th {
+    font-weight: 800;
+    background-color: var(--color-card);
+}
+
+/* Tarjetas de producto estilo al prototipo */
+.product-card {
+    background-color: var(--color-card);
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Formularios estructurados */
+.crud-form {
+    background-color: var(--color-card);
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.crud-form label {
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.crud-form input, 
+.crud-form select, 
+.crud-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    font-family: var(--fuente-base);
+    background-color: #ffffff;
+    color: #000000;
 }
