@@ -1,13 +1,27 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap');
+
+
+:root {
+    --color-principal: #0D4734;
+    --color-acento: #C35317;
+    --secundario-1: #092D17;
+    --secundario-2: #2E4C3A;
+    --secundario-3: #265A49;
+    --color-blanco: #FFFFFF;
+    --fuente-base: 'Montserrat', sans-serif;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: var(--fuente-base);
 }
 
 body {
-    background-color: #062318;
-    color: #ffffff;
+    background-color: var(--secundario-1);
+    color: var(--color-blanco);
     padding: 40px 20px;
     display: flex;
     justify-content: center;
@@ -21,17 +35,42 @@ body {
     gap: 30px;
 }
 
+h1 {
+    font-size: 64px;
+    font-weight: 800; /* ExtraBold */
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: 800; /* ExtraBold */
+    line-height: 1.1;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: 800; /* ExtraBold */
+}
+
+p {
+    font-size: 16px;
+    font-weight: 600; /* SemiBold */
+    opacity: 0.9;
+}
+
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid var(--secundario-2);
     padding-bottom: 15px;
 }
 
 .logo {
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--color-blanco);
 }
 
 nav {
@@ -39,30 +78,40 @@ nav {
     gap: 10px;
 }
 
+
 .nav-btn {
-    background-color: #174836;
-    color: #ffffff;
+    background-color: var(--secundario-3);
+    color: var(--color-blanco);
     text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    font-size: 0.9rem;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s;
 }
 
-.section-block {
-    border: 1px dashed rgba(255, 255, 255, 0.3);
-    padding: 20px;
-    border-radius: 8px;
-}
-
-h1, h2 {
-    margin-bottom: 10px;
-}
-
-p {
-    opacity: 0.8;
-    font-size: 0.9rem;
+.nav-btn:hover {
+    background-color: var(--secundario-2);
 }
 
 .btn-primary {
-    background-color: #c8511b;
+    background-color: var(--color-acento);
+}
+
+.btn-primary:hover {
+    background-color: #a8420f;
+}
+
+
+.section-block {
+    border: 1px dashed var(--secundario-2);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+footer {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.7;
 }
