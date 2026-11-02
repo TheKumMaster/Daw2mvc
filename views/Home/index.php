@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yeahgermeister - Home</title>
-    <link rel="stylesheet" href="<?= url ?>assets/css/styles.css">
+    <link rel="stylesheet" href="<?= url ?>assets/css/global.css">
+    <link rel="stylesheet" href="<?= url ?>assets/css/Home.css">
 </head>
 <body>
 

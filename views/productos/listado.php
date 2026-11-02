@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Carta del Restaurante</title>
-    <link rel="stylesheet" href="<?= url ?>assets/css/styles.css">
+    <link rel="stylesheet" href="<?= url ?>assets/css/global.css">
+    <link rel="stylesheet" href="<?= url ?>assets/css/admin.css">
 </head>
 <body>
     <h1 style="text-align: center;">Nuestra Carta</h1>
