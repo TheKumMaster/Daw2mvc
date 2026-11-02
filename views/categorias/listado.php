@@ -1,4 +1,13 @@
-<h2>Listado de Categorías</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListadoCat</title>
+    <link rel="stylesheet" href="<?= url ?>assets/css/styles.css">
+</head>
+<body>
+    <h2>Listado de Categorías</h2>
 
 <a href="<?= url ?>?controller=categoria&action=create">Crear categoría</a>
 <br><br>
@@ -21,3 +30,5 @@
         </tr>
     <?php endif; ?>
 </table>
+</body>
+</html>

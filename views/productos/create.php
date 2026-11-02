@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Añadir Producto</title>
+    <link rel="stylesheet" href="<?= url ?>assets/css/styles.css">
 </head>
 <body>
     <h2>Añadir Nuevo Producto a la Carta</h2>

@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Carta del Restaurante</title>
-    <style>
-        table { width: 80%; margin: 20px auto; border-collapse: collapse; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-    </style>
+    <link rel="stylesheet" href="<?= url ?>assets/css/styles.css">
 </head>
 <body>
     <h1 style="text-align: center;">Nuestra Carta</h1>

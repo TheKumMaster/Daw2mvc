@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Detalle del Producto</title>
+    <link rel="stylesheet" href="<?= url ?>assets/css/styles.css">
 </head>
 <body>
     <h2>Detalles de: <?= $producto->getNombre() ?></h2>
