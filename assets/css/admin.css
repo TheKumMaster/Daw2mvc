@@ -25,10 +25,9 @@ body {
     justify-content: center;
 }
 
-/* Contenedor principal de la vista */
 .admin-container {
     width: 100%;
-    max-width: 480px; /* Ancho idéntico al home para consistencia */
+    max-width: 480px; 
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -52,7 +51,6 @@ a {
     font-weight: 600;
 }
 
-/* Botones con estilo píldora como en el diseño */
 .btn-action {
     display: inline-block;
     background-color: var(--color-acento);
@@ -71,7 +69,6 @@ a {
     background-color: var(--color-btn-sec);
 }
 
-/* Tablas CRUD muy sencillas */
 .crud-table {
     width: 100%;
     border-collapse: collapse;
@@ -91,7 +88,6 @@ a {
     background-color: var(--color-card);
 }
 
-/* Tarjetas de producto estilo al prototipo */
 .product-card {
     background-color: var(--color-card);
     border: 1px dashed rgba(255, 255, 255, 0.3);
@@ -102,7 +98,6 @@ a {
     gap: 10px;
 }
 
-/* Formularios estructurados */
 .crud-form {
     background-color: var(--color-card);
     border: 1px dashed rgba(255, 255, 255, 0.3);

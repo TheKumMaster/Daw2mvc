@@ -12,7 +12,6 @@ class productoController {
         require_once 'views/productos/create.php';
     }
 
-    // AÑADIR ESTA FUNCIÓN SHOW
     public function show() {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
@@ -52,7 +51,6 @@ class productoController {
         exit;
     }
 
-    // AÑADIR ESTA FUNCIÓN DELETE
     public function delete() {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
