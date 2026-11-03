@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="<?= url ?>assets/css/admin.css">
 </head>
 <body>
+
+    <div style="margin-bottom: 15px;">
+        <a href="<?= url ?>">← Volver al Home</a>
+    </div>
     <h2>Listado de Categorías</h2>
 
 <a href="<?= url ?>?controller=categoria&action=create">Crear categoría</a>
