@@ -9,6 +9,12 @@
 </head>
 <body>
 
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <div class="container">
 
     <header>
@@ -16,6 +22,15 @@
         <nav>
             <a href="<?= url ?>?controller=producto&action=index" class="nav-btn">Productos</a>
             <a href="<?= url ?>?controller=categoria&action=index" class="nav-btn">Categorías</a>
+
+            <!-- BLOQUE DE USUARIO DINÁMICO -->
+            <?php if (isset($_SESSION['usuario_id'])): ?>
+                <a href="<?= url ?>?controller=usuario&action=show" class="nav-btn" style="background-color: #e9ecef; color: #333;">Mi Perfil</a>
+                <a href="<?= url ?>?controller=usuario&action=logout" class="nav-btn" style="background-color: #dc3545; color: white;">Cerrar Sesión</a>
+            <?php else: ?>
+                <a href="<?= url ?>?controller=usuario&action=login" class="nav-btn">Iniciar Sesión</a>
+                <a href="<?= url ?>?controller=usuario&action=create" class="nav-btn btn-primary">Registrarse</a>
+            <?php endif; ?>
         </nav>
     </header>
 
