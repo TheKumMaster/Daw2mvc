@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta del Restaurante - Yeahgermeister</title>
-    <link rel="stylesheet" href="<?= url ?>assets/css/admin.css?v=<?= time() ?>">
-</head>
-<body>
-
 <div class="admin-container">
 
     <div style="margin-bottom: 15px;">
@@ -16,13 +6,7 @@
 
     <h1>NUESTRA CARTA</h1>
 
-    <div style="margin: 20px 0;">
-        <a href="<?= url ?>?controller=producto&action=create" class="btn-action">Añadir Nuevo Plato</a>
-    </div>
-
-    <?php 
-        $listaPlatos = $productos ?? $camisetas ?? null; 
-    ?>
+    <?php $listaPlatos = $productos ?? null; ?>
 
     <table class="crud-table">
         <thead>
@@ -31,7 +15,7 @@
                 <th>Plato</th>
                 <th>Descripción / Ingredientes</th>
                 <th>Precio</th>
-                <th>Acciones</th>
+                <th>Detalles</th>
             </tr>
         </thead>
         <tbody>
@@ -52,13 +36,10 @@
                 <?php endwhile; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="5" style="text-align: center; padding: 20px;">No hay platos añadidos en la carta todavía.</td>
+                    <td colspan="5" style="text-align: center; padding: 20px;">No hay platos disponibles en la carta.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
     </table>
 
 </div>
-
-</body>
-</html>

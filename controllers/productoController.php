@@ -8,9 +8,7 @@ class productoController {
         require_once 'views/productos/listado.php';
     }
 
-    public function create() {
-        require_once 'views/productos/create.php';
-    }
+    
 
     public function show() {
         if (isset($_GET['id'])) {
