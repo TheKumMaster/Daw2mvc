@@ -50,14 +50,16 @@ class usuarioController {
 
             $usuario = UsuarioDAO::getByEmail($email);
 
-            if ($usuario && $usuario->getPassword() == $password) {
+            if ($usuario && $usuario->getPassword() === $password) {
                 $_SESSION['usuario_id'] = $usuario->getId();
                 $_SESSION['usuario_nombre'] = $usuario->getNombre();
                 $_SESSION['usuario_rol'] = $usuario->getRol();
                 
                 header("Location: ?controller=home&action=index");
+                exit();
             } else {
                 header("Location: ?controller=usuario&action=login");
+                exit();
             }
         }
     }
