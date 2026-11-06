@@ -13,7 +13,6 @@
 
     <header class="main-header">
         <a href="<?= url ?>" class="brand-logo">
-            <!-- Imagen oficial del ciervo Yeahgermeister con esquinas redondeadas -->
             <img src="<?= url ?>assets/img/logo yeahgermeister.jpg" alt="Logo Yeahgermeister" class="logo-img">
             <span>YEAHGERMEISTER</span>
         </a>
