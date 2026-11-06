@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="<?= url ?>assets/css/global.css?v=<?= time() ?>">
     <link rel="stylesheet" href="<?= url ?>assets/css/admin.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="<?= url ?>assets/css/Home.css?v=<?= time() ?>">
 </head>
 <body>
 

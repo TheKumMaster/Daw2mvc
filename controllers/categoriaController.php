@@ -2,22 +2,20 @@
 require_once 'models/CategoriaDAO.php';
 
 class categoriaController {
-
     public function index() {
         $categorias = CategoriaDAO::getAll();
-        require_once 'views/categorias/listado.php';
+        
+        $vista = 'views/categorias/listado.php';
+        require_once 'views/main.php';
     }
 
-    public function create() {
-        require_once 'views/categorias/create.php';
-    }
-
-    public function save() {
-        if (isset($_POST['nombre']) && !empty(trim($_POST['nombre']))) {
-            $nombre = trim($_POST['nombre']);
-            CategoriaDAO::save($nombre);
+    public function show() {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $categoria = CategoriaDAO::getById($id);
         }
-        header("Location: " . url . "?controller=categoria&action=index");
-        exit;
+        
+        $vista = 'views/categorias/show.php';
+        require_once 'views/main.php';
     }
 }

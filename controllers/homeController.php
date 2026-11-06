@@ -2,6 +2,8 @@
 
 class homeController {
     public function index() {
-        require_once 'views/home/index.php';
+        $vista = 'views/Home/index.php';
+        
+        require_once 'views/main.php';
     }
 }
