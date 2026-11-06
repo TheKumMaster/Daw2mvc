@@ -6,7 +6,7 @@ function showError($code, $message)
     http_response_code($code);
     $errorCode = $code;
     $errorMessage = $message;
-    $view = "views/error.php";
+    $vista = "views/error.php"; 
     include_once "views/main.php";
     exit;
 }
