@@ -42,3 +42,7 @@ if (!is_callable([$controller, $action])) {
 }
 
 $controller->$action();
+
+if($_GET["action"] == "api"){
+    header('Content-Type: application/json; charset=utf-8');
+}

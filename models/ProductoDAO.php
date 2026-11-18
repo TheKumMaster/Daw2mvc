@@ -29,5 +29,19 @@ class ProductoDAO {
         $con->close();
         return $result;
     }
+
+    public static function getAllJson() {
+        $con = DataBase::connect();
+        $result = $con->query("SELECT * FROM productos ORDER BY id DESC");
+        $con->close();
+        
+        $productos = [];
+
+        while($producto = $result -> fetch_assoc()){
+            $productos[] = $producto;
+            echo json_encode($productos);
+        }
+        return $productos;
+    }
 }
 ?>

@@ -20,4 +20,17 @@ class productoController {
             exit;
         }
     }
+
+    public function api() {
+        $metodo = $_SERVER['REQUEST_METHOD'];
+
+        if($metodo == "GET"){
+            if($_GET['funcion'] == "todos"){
+                $productos = ProductoDAO::getAllJson();
+            }
+        }else if($metodo == "POST"){
+
+        }
+        //echo json_encode("Hola nigga");
+    }
 }
