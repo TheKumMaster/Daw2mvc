@@ -1,34 +1,26 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Mi Perfil</title>
-    <link rel="stylesheet" href="assets/css/global.css">
-</head>
-<body>
-    <h2>Mis Datos Personales</h2>
-    <form action="?controller=usuario&action=update" method="POST">
-        <input type="hidden" name="id" value="<?= $usuario->getId() ?>">
+<div class="auth-container">
+    <div class="auth-card">
+        <h2 class="auth-title">Mis Datos Personales</h2>
+        <form action="?controller=usuario&action=update" method="POST" class="auth-form">
+            <label>Nombre</label>
+            <input type="text" name="nombre" value="<?= htmlspecialchars($usuario->getNombre()) ?>" required>
 
-        <label>Nombre:</label><br>
-        <input type="text" name="nombre" value="<?= $usuario->getNombre() ?>" required><br><br>
+            <label>Email</label>
+            <input type="email" name="email" value="<?= htmlspecialchars($usuario->getEmail()) ?>" required>
 
-        <label>Email:</label><br>
-        <input type="email" name="email" value="<?= $usuario->getEmail() ?>" required><br><br>
+            <label>Teléfono</label>
+            <input type="text" name="telefono" value="<?= htmlspecialchars($usuario->getTelefono()) ?>">
 
-        <label>Teléfono:</label><br>
-        <input type="text" name="telefono" value="<?= $usuario->getTelefono() ?>"><br><br>
+            <label>Dirección</label>
+            <input type="text" name="direccion" value="<?= htmlspecialchars($usuario->getDireccion()) ?>">
 
-        <label>Dirección:</label><br>
-        <input type="text" name="direccion" value="<?= $usuario->getDireccion() ?>"><br><br>
+            <label>Fecha de nacimiento</label>
+            <input type="date" name="fecha_nacimiento" value="<?= htmlspecialchars($usuario->getFechaNacimiento()) ?>">
 
-        <label>Fecha de nacimiento:</label><br>
-        <input type="date" name="fecha_nacimiento" value="<?= $usuario->getFechaNacimiento() ?>"><br><br>
-
-        <button type="submit">Actualizar datos</button>
-    </form>
-    <br>
-    <a href="?controller=home&action=index">Volver al inicio</a> | 
-    <a href="?controller=usuario&action=logout">Cerrar sesión</a>
-</body>
-</html>
+            <button type="submit" class="btn-auth">Actualizar datos</button>
+        </form>
+        <div class="auth-links">
+            <a href="?controller=usuario&action=logout">Cerrar sesión</a>
+        </div>
+    </div>
+</div>

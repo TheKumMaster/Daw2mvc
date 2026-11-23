@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="assets/css/global.css">
-</head>
-<body>
-    <h2>Iniciar Sesión</h2>
-    <form action="?controller=usuario&action=validar" method="POST">
-        <label>Email:</label><br>
-        <input type="email" name="email" required><br><br>
+<div class="auth-container">
+    <div class="auth-card">
+        <h2 class="auth-title">Iniciar Sesión</h2>
+        <form action="?controller=usuario&action=validar" method="POST" class="auth-form">
+            <label>Email</label>
+            <input type="email" name="email" required>
 
-        <label>Contraseña:</label><br>
-        <input type="password" name="password" required><br><br>
+            <label>Contraseña</label>
+            <input type="password" name="password" required>
 
-        <button type="submit">Entrar</button>
-    </form>
-    <br>
-    <a href="?controller=usuario&action=create">Crear una cuenta</a> | 
-    <a href="?controller=home&action=index">Volver al inicio</a>
-</body>
-</html>
+            <button type="submit" class="btn-auth">Entrar</button>
+        </form>
+        <div class="auth-links">
+            <a href="?controller=usuario&action=create">Crear una cuenta</a>
+        </div>
+    </div>
+</div>

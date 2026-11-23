@@ -241,3 +241,78 @@ body {
     color: white;
     padding: 50px;
 }
+/* Formularios de Usuario (Login, Registro y Perfil) */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.auth-card {
+    background-color: #0b3822;
+    padding: 35px 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.auth-title {
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-form label {
+    font-size: 0.9rem;
+    color: #d5dbdb;
+}
+
+.auth-form input {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ffffff;
+    color: #222222;
+    font-size: 0.95rem;
+}
+
+.btn-auth {
+    margin-top: 15px;
+    background-color: var(--color-acento);
+    color: var(--color-blanco);
+    border: none;
+    padding: 12px;
+    border-radius: 25px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-auth:hover {
+    background-color: #a84412;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-links a {
+    color: #a3e4d7;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
