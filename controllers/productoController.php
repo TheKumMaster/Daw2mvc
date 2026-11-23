@@ -1,5 +1,6 @@
 <?php
 require_once 'models/ProductoDAO.php';
+require_once 'models/IngredienteDAO.php';
 
 class productoController {
 
@@ -13,6 +14,8 @@ class productoController {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $producto = ProductoDAO::getById($id);
+            $ingredientesIncluidos = IngredienteDAO::getIncluidosByProducto($id);
+            $ingredientesExtras = IngredienteDAO::getExtrasByProducto($id);
             $vista = 'views/productos/show.php';
             require_once 'views/main.php';
         } else {
@@ -20,17 +23,20 @@ class productoController {
             exit;
         }
     }
-
-    public function api() {
-        $metodo = $_SERVER['REQUEST_METHOD'];
-
-        if($metodo == "GET"){
-            if($_GET['funcion'] == "todos"){
-                $productos = ProductoDAO::getAllJson();
-            }
-        }else if($metodo == "POST"){
-
-        }
-        //echo json_encode("Hola nigga");
-    }
 }
+
+
+    // public function api() {
+    //     $metodo = $_SERVER['REQUEST_METHOD'];
+
+    //     if($metodo == "GET"){
+    //         if($_GET['funcion'] == "todos"){
+    //             $productos = ProductoDAO::getAllJson();
+    //         }
+    //     }else if($metodo == "POST"){
+
+    //     }
+    //     //echo json_encode("Hola nigga");
+    // }
+
+?>

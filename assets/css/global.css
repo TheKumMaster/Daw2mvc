@@ -316,3 +316,85 @@ body {
 .auth-links a:hover {
     text-decoration: underline;
 }
+
+/* Contenedor de ingredientes estilo Yeahgerburger */
+.ingredientes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+    max-width: 480px; /* Alínea la anchura */
+}
+
+.ingrediente-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* Cápsula del ingrediente */
+.ingrediente-badge {
+    background-color: var(--color-acento, #C35317);
+    color: var(--color-blanco, #FFFFFF);
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    flex: 1;
+    text-align: left;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+.ingrediente-badge.is-extra {
+    background-color: var(--secundario-3, #265A49); /* Sutil distinción para extras */
+}
+
+/* Selector de cantidades rústico */
+.qty-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(0,0,0,0.2);
+    padding: 3px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.qty-btn {
+    background-color: var(--color-acento, #C35317);
+    color: var(--color-blanco, #FFFFFF);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.qty-btn:hover {
+    background-color: #a04210;
+}
+
+.qty-input {
+    width: 28px;
+    background: transparent;
+    border: none;
+    color: var(--color-blanco, #FFFFFF);
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    outline: none;
+    -moz-appearance: textfield;
+}
+
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
