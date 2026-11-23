@@ -33,9 +33,6 @@ if (session_status() === PHP_SESSION_NONE) {
                 <a href="<?= url ?>?controller=usuario&action=show" class="nav-capsule">
                     <?= htmlspecialchars($_SESSION['usuario_nombre']) ?>
                 </a>
-                <a href="<?= url ?>?controller=usuario&action=logout" class="nav-capsule">
-                    Salir
-                </a>
             <?php else: ?>
                 <a href="<?= url ?>?controller=usuario&action=login" class="user-icon-btn" aria-label="Perfil de Usuario">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="#FFFFFF">
