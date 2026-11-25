@@ -1,3 +1,4 @@
 <?php
     ?>
-    <script src="views/admin/main.js"></script>
+    <script src="<?= url ?>views/admin/ViewController.js"></script>
+    <script src="<?= url ?>views/admin/main.js"></script>
