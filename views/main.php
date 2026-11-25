@@ -26,8 +26,17 @@ if (session_status() === PHP_SESSION_NONE) {
             <nav class="nav-links">
                 <a href="<?= url ?>" class="nav-capsule">Menu</a>
                 <a href="<?= url ?>?controller=producto&action=index" class="nav-capsule">Productos</a>
-                <a href="<?= url ?>?controller=producto&action=index" class="nav-capsule">Encargos</a>
-            </nav>
+                <?php
+                    $totalArticulos = 0;
+                    if (!empty($_SESSION['carrito'])) {
+                        foreach ($_SESSION['carrito'] as $item) {
+                            $totalArticulos += $item['cantidad'];
+                        }
+                    }
+                ?>
+                <a href="<?= url ?>?controller=carrito&action=index" class="nav-capsule">
+                    Carrito (<?= $totalArticulos ?>)
+                </a>
 
             <?php if (isset($_SESSION['usuario_id'])): ?>
                 <a href="<?= url ?>?controller=usuario&action=show" class="nav-capsule">
