@@ -390,6 +390,7 @@ body {
     font-size: 1.1rem;
     font-weight: bold;
     outline: none;
+    appearance: textfield;
     -moz-appearance: textfield;
 }
 
@@ -397,4 +398,92 @@ body {
 .qty-input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.logo-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    flex-shrink: 0;
+}
+
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.6) translateY(2px) translateX(-1px);
+}
+
+.product-card {
+    background-color: #0b3822;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.product-card-img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.btn-yeahger {
+    background-color: var(--color-acento, #C35317);
+    color: #ffffff;
+    border: none;
+}
+
+.btn-yeahger:hover {
+    background-color: #a84412;
+    color: #ffffff;
+}
+.text-yeahger {
+    color: var(--color-acento, #C35317) !important;
+}
+.jager-img-box {
+    aspect-ratio: 4 / 5;
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.04) 0px,
+            rgba(255, 255, 255, 0.04) 2px,
+            transparent 2px,
+            transparent 10px
+        ),
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.14) 0%, rgba(0, 0, 0, 0.25) 100%);
+    transition: transform 0.25s ease;
+}
+
+.jager-img {
+    max-width: 82%;
+    max-height: 82%;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    transition: transform 0.35s ease;
+}
+
+.jager-card:hover .jager-img {
+    transform: scale(1.06);
+}
+
+.jager-bag-icon {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    background-color: rgba(11, 56, 34, 0.75);
+    color: #ffffff;
+    backdrop-filter: blur(4px);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.jager-card:hover .jager-bag-icon {
+    background-color: var(--color-acento, #C35317);
+    transform: scale(1.08);
 }

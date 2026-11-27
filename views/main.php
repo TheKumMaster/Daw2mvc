@@ -26,7 +26,9 @@ if (!empty($_SESSION['carrito'])) {
     <nav class="navbar navbar-expand-lg navbar-dark main-header px-3 px-lg-5 py-3">
         <div class="container-fluid">
             <a href="<?= url ?>" class="navbar-brand d-flex align-items-center gap-2 fw-bold">
-                <img src="<?= url ?>assets/img/logo yeahgermeister.jpg" alt="Logo Yeahgermeister" class="logo-img rounded-circle" width="42" height="42">
+                <div class="logo-circle">
+                    <img src="<?= url ?>\assets\img\logo yeahgermeister.svg" alt="Logo Yeahgermeister">
+                </div>
                 <span>YEAHGERMEISTER</span>
             </a>
 
